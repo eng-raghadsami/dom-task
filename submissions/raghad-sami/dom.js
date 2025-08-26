@@ -23,8 +23,12 @@ console.log(document.body.childNodes[0].nodeType); // 3
 console.log(document.body.childNodes[0].nodeName); // #text
 
 // Is the first paragraph a sibling of the second, or a descendant?
+let p1 = document.getElementById("p1");
+let p2 = document.getElementById("p2");
+console.log(p1.parentElement === p2.parentElement); // true
 
 // => siblings
+
 
 
 // Can you find any unexpected text nodes in the DOM structure? Log them and explain their origin.
@@ -32,7 +36,9 @@ console.log(document.body.childNodes[0].nodeName); // #text
 // Text nodes like "\n" (new lines) appear in the DOM
 // because of how the HTML is formatted with line breaks.
 // These are not visible in the page but they are part of the DOM as text nodes.
+let section = document.querySelector("section");
 
+console.log(section.childNodes);
 
 
 // Task 2: Synthetic DOM Injection
