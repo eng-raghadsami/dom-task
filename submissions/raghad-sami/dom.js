@@ -36,10 +36,17 @@ console.log(p1.parentElement === p2.parentElement); // true
 // Text nodes like "\n" (new lines) appear in the DOM
 // because of how the HTML is formatted with line breaks.
 // These are not visible in the page but they are part of the DOM as text nodes.
-let section = document.querySelector("section");
+ const Nodes = document.body.getElementsByTagName("*"); 
 
-console.log(section.childNodes);
-
+  for (let el of Nodes) {
+    for (let child of el.childNodes) {
+      if (child.nodeType === Node.TEXT_NODE) {
+        if (child.textContent.trim() === "") {
+          console.log("unexpected text node:", JSON.stringify(child.textContent));
+        } 
+      }
+    }
+  }
 
 // Task 2: Synthetic DOM Injection
 
